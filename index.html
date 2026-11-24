@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qualycenter - Sistema de Aulas Experimentais</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="logo.jpeg" alt="Logo Qualycenter">
+      <strong>Qualycenter</strong>
+    </div>
+    <nav>
+      <a href="#agendamentos" class="active" data-page="agendamentos">Agendamentos</a>
+      <a href="#acompanhamento" data-page="acompanhamento">Acompanhamento</a>
+      <a href="#comissoes" data-page="comissoes">Comissões</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <section class="page active" id="agendamentos">
+      <header><h1>Agendamento de aulas experimentais</h1></header>
+      <section class="panel">
+        <h2>Novo agendamento</h2>
+        <form id="appointment-form">
+          <label>Nome do interessado
+            <input type="text" id="name" required>
+          </label>
+          <label>Data de nascimento
+            <input type="date" id="birthdate" required>
+          </label>
+          <label>Telefone
+            <input type="tel" id="phone" required>
+          </label>
+          <label>Curso
+            <select id="course" required>
+              <option value="">Selecione</option>
+              <option>Informática Inicial</option>
+              <option>Marketing Digital</option>
+              <option>Designer Gráfico</option>
+              <option>Edição de vídeo</option>
+              <option>Excel Básico ao Avançado</option>
+              <option>Programação Kids</option>
+              <option>AutoCad e Sketchup</option>
+              <option>Desenvolvimento Pessoal e Administrativo</option>
+            </select>
+          </label>
+          <label>Data
+            <input type="date" id="date" required>
+          </label>
+          <label>Horário
+            <input type="time" id="time" required>
+          </label>
+          <label>Laboratório
+            <input type="text" id="lab" placeholder="Ex.: Laboratório 1" required>
+          </label>
+          <label>Instrutor responsável
+            <input type="text" id="instructor" required>
+          </label>
+          <button type="submit">Salvar agendamento</button>
+        </form>
+      </section>
+      <section class="panel">
+        <h2>Agendamentos registrados</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Interessado</th><th>Nascimento</th><th>Telefone</th><th>Curso</th><th>Data</th><th>Horário</th><th>Laboratório</th><th>Instrutor</th></tr></thead>
+            <tbody id="appointments-list"><tr><td colspan="8" class="empty">Nenhum agendamento registrado.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="acompanhamento">
+      <header><h1>Acompanhamento das aulas</h1></header>
+      <section class="panel">
+        <h2>Registrar resultado da aula</h2>
+        <p class="help">Selecione o agendamento e informe o que aconteceu após a aula experimental.</p>
+        <form id="tracking-form">
+          <label>Agendamento
+            <select id="tracking-appointment" required><option value="">Selecione um agendamento</option></select>
+          </label>
+          <label>Situação da aula
+            <select id="class-status" required>
+              <option value="">Selecione</option>
+              <option>Realizada</option>
+              <option>Cancelada</option>
+              <option>Não compareceu</option>
+            </select>
+          </label>
+          <label>Resultado
+            <select id="class-result" required>
+              <option value="">Selecione</option>
+              <option>Matriculado</option>
+              <option>Não matriculado</option>
+              <option>Aguardando decisão</option>
+            </select>
+          </label>
+          <button type="submit">Salvar acompanhamento</button>
+        </form>
+      </section>
+      <section class="panel">
+        <h2>Aulas acompanhadas</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Interessado</th><th>Curso</th><th>Data</th><th>Instrutor</th><th>Situação</th><th>Resultado</th></tr></thead>
+            <tbody id="tracking-list"><tr><td colspan="6" class="empty">Nenhum acompanhamento registrado.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="comissoes">
+      <header><h1>Controle de comissões</h1></header>
+      <section class="panel">
+        <p class="help">A comissão é registrada quando o resultado da aula experimental é marcado como matrícula. O valor é fixo de R$ 15,00.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Instrutor</th><th>Aluno</th><th>Curso</th><th>Valor</th><th>Pagamento</th><th>Ação</th></tr></thead>
+            <tbody id="commissions-list"><tr><td colspan="6" class="empty">Nenhuma comissão registrada.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
